@@ -1,12 +1,13 @@
-create schema mymusic_collection;
+#create schema mymusic_collection;
 use mymusic_collection;
-create table Album
-(
-	album_id Integer primary Key not null Auto_Increment,
-    title varchar(50),
-    recording_date date,
-    rating float
-);
+#create table Album
+#(
+#	album_id Integer primary Key not null Auto_Increment,
+ #   title varchar(50),
+  #  recording_date date,
+#    rating float
+#);
+
 create table Releases
 (
 	release_ID Integer primary key not null Auto_Increment,
@@ -14,7 +15,7 @@ create table Releases
     duration time,
     no_of_tracks Integer,
     release_date date,
-    constraint album_release foreign key (album_id) references Album(album_id) on delete set null
+    constraint album_release foreign key (album_id) references Album(album_id) on delete cascade
 );
 create table Album_Genre
 (
@@ -56,5 +57,6 @@ create table Collection
     purchase_date date,
     constraint release_id foreign key (release_id) references Releases(release_id) on delete set null,
     constraint album_id foreign key (album_id) references Album(album_id) on delete set null
+    abcdd
     
 );
